@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Moon, Sun, Code, D
 import emailjs from '@emailjs/browser';
 import profileImage from './assets/yusuff (2).jpg';
 import blogImage from './assets/image.png';
-import spaceImage from './assets/space.jpg.png';
+import portImage from './assets/port.png';
 import libraryImage from './assets/library.png';
 import commerceImage from './assets/product.jpg.png';
 import gymImage from './assets/Gym.png'
@@ -105,12 +105,12 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Space Tourism App",
+      title: "Portfolio Website",
       description: "An interactive space tourism website showcasing destinations, mission details, and crew information. Features stunning visuals and smooth animations.",
-      image: spaceImage,
-      tech: ["HTML", "JavaScript", "Bootstrap"],
-      github: "https://github.com/Ayomidespenz/Space-Explorer",
-      live: "#"
+      image: portImage,
+      tech: ["React", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/react-portfolio1",
+      live: "https://yusuffport.netlify.app/"
     },
     {
       id: 4,
@@ -195,7 +195,7 @@ const Portfolio = () => {
       <nav className={`navbar navbar-expand-lg fixed-top ${darkMode ? 'bg-dark navbar-dark' : 'bg-white navbar-light'} shadow-sm`} style={{ backdropFilter: 'blur(10px)', backgroundColor: darkMode ? 'rgba(33, 37, 41, 0.95) !important' : 'rgba(255, 255, 255, 0.95) !important' }}>
         <div className="container">
           <a className="navbar-brand fw-bold fs-3 text-primary" href="#home">
-            Portfolio
+            Mishary
           </a>
           
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
