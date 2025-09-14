@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Moon, Sun, Code, Database, Palette, GitBranch, ChevronDown, ChevronUp, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import profileImage from './assets/yusuff (2).jpg';
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init('op427E5UX5ushb7fT');
+    
     // Simulate loading
     setTimeout(() => setLoading(false), 1000);
 
@@ -282,11 +292,11 @@ const Portfolio = () => {
                 applications that make a difference.
               </p>
               <div className="d-flex gap-3">
-                <a href="#" className="btn btn-outline-primary">
+                <a href="https://github.com/Ayomidespenz" className="btn btn-outline-primary" target='_blank' rel='noopener noreferrer'>
                   <Github size={20} className="me-2" />
                   GitHub
                 </a>
-                <a href="#" className="btn btn-outline-primary">
+                <a href="https://www.linkedin.com/in/quadri-yusuff-adisa" className="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">
                   <Linkedin size={20} className="me-2" />
                   LinkedIn
                 </a>
@@ -546,10 +556,10 @@ const Portfolio = () => {
               </div>
               
               <div className="d-flex gap-3">
-                <a href="#" className="btn btn-outline-primary">
+              <a href="https://github.com/Ayomidespenz" className="btn btn-outline-primary" target='_blank' rel='noopener noreferrer'>
                   <Github size={20} />
                 </a>
-                <a href="#" className="btn btn-outline-primary">
+               <a href="https://www.linkedin.com/in/quadri-yusuff-adisa" className="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">
                   <Linkedin size={20} />
                 </a>
               </div>
@@ -558,39 +568,84 @@ const Portfolio = () => {
             <div className="col-lg-6">
               <div className={`card shadow-sm ${darkMode ? 'bg-dark' : 'bg-white'}`}>
                 <div className="card-body">
-                  <div className="mb-3">
-                    <label className="form-label">Name</label>
-                    <input 
-                      type="text" 
-                      className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input 
-                      type="email" 
-                      className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label">Message</label>
-                    <textarea 
-                      className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
-                      rows="5" 
-                      placeholder="Your message..."
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="button" 
-                    className="btn btn-primary w-100"
-                    style={{ transition: 'all 0.3s ease' }}
-                    onClick={() => alert('Message sent! (Demo version)')}
-                  >
-                    <Send size={20} className="me-2" />
-                    Send Message
-                  </button>
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    setSending(true);
+                    try {
+                      const templateParams = {
+                        user_name: formData.name,
+                        user_email: formData.email,
+                        message: formData.message,
+                        reply_to: formData.email
+                      };
+                      
+                      await emailjs.send(
+                        'service_cz3n5bo',
+                        'template_krhnqlu',
+                        templateParams,
+                        'op427E5UX5ushb7fT'
+                      );
+                      setFormData({ name: '', email: '', message: '' });
+                      alert('Message sent successfully!');
+                    } catch (error) {
+                      console.error('Error details:', error);
+                      alert(`Failed to send message: ${error.text || 'Please check your EmailJS configuration'}`);
+                    } finally {
+                      setSending(false);
+                    }
+                  }}>
+                    <div className="mb-3">
+                      <label className="form-label">Name</label>
+                      <input 
+                        type="text" 
+                        className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Email</label>
+                      <input 
+                        type="email" 
+                        className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
+                        placeholder="your.email@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Message</label>
+                      <textarea 
+                        className={`form-control ${darkMode ? 'bg-dark text-light border-secondary' : ''}`} 
+                        rows="5" 
+                        placeholder="Your message..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        required
+                      ></textarea>
+                    </div>
+                    <button 
+                      type="submit" 
+                      className="btn btn-primary w-100"
+                      style={{ transition: 'all 0.3s ease' }}
+                      disabled={sending}
+                    >
+                      {sending ? (
+                        <>
+                          <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={20} className="me-2" />
+                          Send Message
+                        </>
+                      )}
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
