@@ -1,0 +1,145 @@
+/* src/styles.css */
+
+/* Color Scheme: Primary #0D6EFD (blue), Secondary #6C757D (gray), Accent #FFC107 (yellow) */
+:root {
+  --primary: #0D6EFD;
+  --secondary: #6C757D;
+  --accent: #FFC107;
+  --bg-light: #F8F9FA;
+  --bg-dark: #212529;
+  --text-light: #212529;
+  --text-dark: #F8F9FA;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Sleek typography */
+  color: var(--text-light);
+  background-color: var(--bg-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  color: var(--text-dark);
+  background-color: var(--bg-dark);
+}
+
+.dark-mode .bg-light {
+  background-color: #343A40 !important;
+}
+
+.hero-section {
+  background: var(--primary); /* Parallax could be added with CSS background-attachment: fixed; but omitted for simplicity */
+}
+
+.animated-tagline {
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: var(--secondary);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid var(--primary);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -16px;
+}
+
+.timeline-content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
+}
+
+.dark-mode .timeline-content {
+  background-color: #495057;
+}
+
+.social-links a {
+  color: var(--secondary);
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+/* Loading animation for navigation (using AnimatePresence) */
+/* Add more parallax or scroll effects if needed with libraries like react-scroll-parallax */
+
+/* Responsive adjustments via Bootstrap */
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item::after {
+    left: 15px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0%;
+  }
+
+  .timeline::after {
+    left: 31px;
+  }
+}
