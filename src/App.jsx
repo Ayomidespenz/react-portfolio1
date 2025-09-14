@@ -432,7 +432,7 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className="py-5">
         <div className="container">
-          <h2 className="display-4 fw-bold text-center mb-5">Featured Projects</h2>
+          <h2 className="display-4 fw-bold text-center mb-5">My Projects</h2>
           
           <div className="row">
             {projects.map((project) => (

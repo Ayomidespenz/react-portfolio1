@@ -12,10 +12,35 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif; /* Sleek typography */
+  font-family: 'Roboto', sans-serif;
   color: var(--text-light);
   background-color: var(--bg-light);
   transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Navbar styles */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: inherit;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .dark-mode .navbar-collapse {
+    background-color: rgba(33, 37, 41, 0.95);
+  }
 }
 
 .dark-mode {
@@ -28,7 +53,22 @@ body {
 }
 
 .hero-section {
-  background: var(--primary); /* Parallax could be added with CSS background-attachment: fixed; but omitted for simplicity */
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+/* Experience Section */
+#experience {
+  background-color: var(--bg-light);
+  transition: background-color 0.3s;
+}
+
+.dark-mode #experience {
+  background-color: var(--bg-dark);
 }
 
 .animated-tagline {
@@ -123,16 +163,83 @@ body {
 /* Loading animation for navigation (using AnimatePresence) */
 /* Add more parallax or scroll effects if needed with libraries like react-scroll-parallax */
 
-/* Responsive adjustments via Bootstrap */
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .display-2 {
+    font-size: 3rem !important;
+  }
+  
+  .display-4 {
+    font-size: 2.2rem !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    margin: 1rem 0;
+  }
+
+  .nav-item {
+    padding: 0.5rem 0;
+  }
+
+  #about img {
+    max-width: 250px !important;
+    height: 250px !important;
+    margin: 0 auto 2rem;
+  }
+
+  .btn-lg, .btn {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  h1.display-2 {
+    font-size: 2.8rem !important;
+  }
+
+  .text-cycler {
+    font-size: 1.5rem !important;
+  }
+
+  /* Reduce experience section icons */
+  .timeline-item::after {
+    width: 20px;
+    height: 20px;
+    right: -14px;
+  }
+
+  .timeline-item:nth-child(even)::after {
+    left: -14px;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+    padding: 2rem 0;
+  }
+
+  h1.display-2 {
+    font-size: 2rem !important;
+  }
+
+  .text-cycler {
+    font-size: 1.1rem !important;
+  }
+
   .timeline-item {
     width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 15px;
   }
 
   .timeline-item::after {
-    left: 15px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
   }
 
   .timeline-item:nth-child(even) {
@@ -140,6 +247,81 @@ body {
   }
 
   .timeline::after {
-    left: 31px;
+    left: 25px;
+    width: 3px;
+  }
+
+  #about img {
+    width: 180px !important;
+    height: 180px !important;
+    object-fit: cover;
+  }
+
+  .btn, .btn-lg {
+    padding: 0.3rem 0.8rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .project-card img {
+    height: 180px !important;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 1.5rem 1rem;
+  }
+
+  h1.display-2 {
+    font-size: 1.8rem !important;
+  }
+
+  .text-cycler {
+    font-size: 1rem !important;
+  }
+
+  .display-4 {
+    font-size: 1.6rem !important;
+  }
+
+  #about img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .btn, .btn-lg {
+    padding: 0.25rem 0.7rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .project-card img {
+    height: 160px !important;
+  }
+
+  .timeline-content {
+    padding: 10px 12px;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+
+  /* Further reduce experience section icons */
+  .timeline-item {
+    padding-left: 50px;
+    padding-right: 15px;
+  }
+
+  .timeline-item::after {
+    width: 15px;
+    height: 15px;
+    left: 10px;
+    border-width: 2px;
+  }
+
+  .timeline::after {
+    left: 25px;
+    width: 3px;
   }
 }
