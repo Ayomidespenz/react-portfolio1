@@ -106,7 +106,7 @@ const Portfolio = () => {
     {
       id: 3,
       title: "Portfolio Website",
-      description: "An interactive space tourism website showcasing destinations, mission details, and crew information. Features stunning visuals and smooth animations.",
+      description: "An interactive portfolio website showcasing skills. Features stunning visuals and smooth animations.",
       image: portImage,
       tech: ["React", "Bootstrap"],
       github: "https://github.com/Ayomidespenz/react-portfolio1",
