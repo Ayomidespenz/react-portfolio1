@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Moon, Sun, Code, Database, Palette, GitBranch, ChevronDown, ChevronUp, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import profileImage from './assets/yusuff (2).jpg';
+import blogImage from './assets/image.png';
+import spaceImage from './assets/space.jpg.png';
+import libraryImage from './assets/library.png';
+import commerceImage from './assets/product.jpg.png';
+import gymImage from './assets/Gym.png'
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -82,17 +87,17 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution built with React and Laravel, featuring user authentication, payment integration, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      tech: ["React", "Laravel", "MySQL", "Bootstrap"],
-      github: "#",
+      title: "Blog Platform",
+      description: "A modern blog platform built with Vue.js and Laravel, featuring user authentication, rich text editing, comment system, and category management.",
+      image: blogImage,
+      tech: ["Vue.js", "Laravel", "MySQL", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/Quadri-blog",
       live: "#"
     },
     {
       id: 2,
       title: "Blockchain Voting System",
-      description: "Decentralized voting application using Solidity smart contracts, ensuring transparency and security in electoral processes.",
+      description: "A secure and transparent voting platform built with Solidity smart contracts on Ethereum. Features include voter verification, real-time vote counting, and tamper-proof results.",
       image: "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=400&h=250&fit=crop",
       tech: ["Solidity", "React", "Web3", "Ethereum"],
       github: "#",
@@ -100,13 +105,40 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates, built using Vue.js frontend and PHP backend.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
-      tech: ["Vue.js", "PHP", "MySQL", "Socket.io"],
-      github: "#",
+      title: "Space Tourism App",
+      description: "An interactive space tourism website showcasing destinations, mission details, and crew information. Features stunning visuals and smooth animations.",
+      image: spaceImage,
+      tech: ["HTML", "JavaScript", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/Space-Explorer",
       live: "#"
-    }
+    },
+    {
+      id: 4,
+      title: "Library Management System",
+      description: "A comprehensive library system for managing books, memberships, and loans. Includes features for cataloging, search, and user tracking.",
+      image: libraryImage,
+      tech: ["HTML", "JavaScript", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/New-library-work",
+      live: "https://stirring-choux-19915c.netlify.app/"
+    },
+    {
+      id: 5,
+      title: "E-commerce Website",
+      description: "A responsive e-commerce platform with product catalog, shopping cart, and checkout functionality. Features include product filtering and search.",
+      image: commerceImage,
+      tech: ["HTML", "JavaScript", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/Cart-list",
+      live: "https://storied-babka-0e6b53.netlify.app/"
+    },
+    {
+      id: 6,
+      title: "Gym Website",
+      description: "A modern fitness website with membership plans, class schedules, and trainer profiles. Includes BMI calculator and workout tracking features.",
+      image: gymImage,
+      tech: ["HTML", "JavaScript", "Bootstrap"],
+      github: "https://github.com/Ayomidespenz/Gym",
+      live: "https://fitnesspot.netlify.app/"
+    },
   ];
 
   const skills = {
@@ -125,7 +157,7 @@ const Portfolio = () => {
     ],
     blockchain: [
       { name: "Solidity", proficiency: 75, icon: GitBranch },
-      { name: "Web3.js", proficiency: 70, icon: GitBranch }
+      { name: "Web3.js", proficiency: 50, icon: GitBranch }
     ],
     tools: [
       { name: "Git", proficiency: 90, icon: GitBranch },
