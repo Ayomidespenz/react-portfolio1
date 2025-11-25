@@ -788,12 +788,12 @@ const Portfolio = () => {
                     }`}
                   >
                     <div className="card-body">
-                      <h5 className="card-title text-white">{exp.title}</h5>
+                      <h5 className="card-title ">{exp.title}</h5>
                       <h6 className="card-subtitle mb-2 text-white">
                         {exp.company}
                       </h6>
                       <p className="card-text">
-                        <small className="text-white">{exp.period}</small>
+                        <small >{exp.period}</small>
                       </p>
                       <p className="card-text">{exp.description}</p>
                     </div>
