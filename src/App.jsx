@@ -24,6 +24,8 @@ import libraryImage from "./assets/library.png";
 import commerceImage from "./assets/product.jpg.png";
 import gymImage from "./assets/Gym.png";
 import HospitalImage from "./assets/hospital.png";
+import FoodImage from "./assets/food.png";
+import LendImage from './assets/lendsqr.png'
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -192,21 +194,47 @@ const Portfolio = () => {
       github: "https://github.com/Ayomidespenz/Gym",
       live: "https://fitnesspot.netlify.app/",
     },
+      {
+      id: 7,
+      title: "Restaurant  Website",
+      description:
+        "A stylish and user-friendly Restaurant Website designed to showcase menus, special dishes, and customer services. It features smooth navigation, attractive food sections, and an engaging layout that enhances customer experience. Built with HTML and JavaScript, the site focuses on simplicity, speed, and modern presentation.",
+      image: FoodImage,
+      tech: ["HTML", " CSS ", "JavaScript",],
+      github: "https://github.com/Ayomidespenz/Restaurant---Web",
+      live: "https://vocal-pasca-7c5144.netlify.app/#food-menu",
+    },
+       {
+      id: 8,
+      title: "FinTech  Website",
+      description:
+        "A modern and responsive FinTech Web Application built with React.js and SASS, featuring clean UI components, seamless navigation, and real-time data handling through RESTful APIs. The platform delivers a smooth user experience with dashboards, authentication flow, and data-driven screens—designed to reflect real FinTech product standards.",
+      image: LendImage,
+      tech: ["React.Js", "SASS" , "RestfulAPI"],
+      github: "https://github.com/Ayomidespenz/lendsqr-fe-test",
+      live: "https://quadri-lendsqr-test.netlify.app/",
+    },
   ];
 
   const skills = {
     frontend: [
       { name: "HTML", proficiency: 90, icon: Code },
-      { name: "CSS", proficiency: 85, icon: Code },
+      { name: "CSS", proficiency: 90, icon: Code },
+      { name: "SASS", proficiency: 75, icon: Code },
+      { name: "Bootstrap", proficiency: 85, icon: Code },
+      { name: "Tailwind Css", proficiency: 85, icon: Code },
+      { name: "Shadcn/UI", proficiency: 85, icon: Code },
       { name: "JavaScript", proficiency: 90, icon: Code },
+      { name: "TypeScript", proficiency: 75, icon: Code },
       { name: "React.js", proficiency: 85, icon: Code },
       { name: "Vue.js", proficiency: 80, icon: Code },
-      { name: "TypeScript", proficiency: 75, icon: Code },
     ],
     backend: [
       { name: "PHP", proficiency: 85, icon: Database },
       { name: "Laravel", proficiency: 80, icon: Database },
       { name: "MySQL", proficiency: 85, icon: Database },
+      { name: "PostGre", proficiency: 85, icon: Database },
+      { name: "SQL", proficiency: 85, icon: Database },
     ],
     blockchain: [
       { name: "Solidity", proficiency: 75, icon: GitBranch },
