@@ -824,7 +824,7 @@ const Portfolio = () => {
               </div>
               <div className="d-flex align-items-center mb-3">
                 <Phone className="text-primary me-3" size={24} />
-                <span>+234 813-342-2517</span>
+                <span>+234 813-342-2517 || +234 805-793-8850</span>
               </div>
               <div className="d-flex align-items-center mb-4">
                 <MapPin className="text-primary me-3" size={24} />
